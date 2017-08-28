@@ -31,9 +31,10 @@
         - 关闭客户端：`redis-cli shutdown`
         - 开机启动配置：`echo "/usr/local/bin/redis-server /etc/redis.conf" >> /etc/rc.local`
         - 开放防火墙端口：
-            - 添加规则：`iptables -I INPUT -p tcp -m tcp --dport 6379 -j ACCEPT`
-            - 保存规则：`service iptables save`
-            - 重启 iptables：`service iptables restart`
+            - 添加规则：`firewall-cmd --zone=public --add-port=6379/tcp --permanent`
+            - 重新载入：`firewall-cmd --reload`
+            - 查看：`firewall-cmd --zone=public--query-port=6379/tcp`
+	    - 删除：`firewall-cmd --zone=public==remove-port=6379/tcp --permanent`
 
 
 ## Redis-3.0.7 配置
