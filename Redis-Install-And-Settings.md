@@ -30,11 +30,12 @@
         - 进入客户端：`redis-cli`
         - 关闭客户端：`redis-cli shutdown`
         - 开机启动配置：`echo "/usr/local/bin/redis-server /etc/redis.conf" >> /etc/rc.local`
-        - 开放防火墙端口：      
-            - 添加规则：`firewall-cmd --zone=public --add-port=6379/tcp --permanent` 
-           
-
-
+        - 开放防火墙端口：
+			- 添加规则：`firewall-cmd --zone=public --add-port=6379/tcp --permanent` 
+			- 重新加载：`firewall-cmd --reload`
+			- 查看：`firewall-cmd --zone=public--query-port=6379/tcp`
+			- 删除:`firewall-cmd --zone=public==remove-port=6379/tcp --permanent`
+	    
 ## Redis-3.0.7 配置
 
 - 编辑配置文件：`vim /etc/redis.conf`
